@@ -11,7 +11,7 @@ email: zdf@zerodarktech.com
 description: > # this means to ignore newlines until "baseurl:"
   The web is accelerating at a rapid pace. Why are our documents still in the stoneage?
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://zerodarktech.com" # the base hostname & protocol for your site
+url: "http://zdf.zerodarktech.com" # the base hostname & protocol for your site
 github_username:  Team-ZDF
 
 # Build settings
