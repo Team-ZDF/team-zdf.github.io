@@ -1,24 +1,51 @@
-<footer class="mdl-mini-footer">
-  <div class="mdl-mini-footer__left-section">
-    <div class="mdl-logo">{{ site.title }}</div>
-    <ul class="mdl-mini-footer__link-list">
-      <li><a href="#">Help</a></li>
-      <li><a href="#">Privacy & Terms</a></li>
-      <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+<footer class="navbar navbar-light navbar-fixed-bottom bg-faded hidden-xs-down">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <a class="navbar-brand" href="{{ "/" | prepend: site.baseurl }}">
+          {{ site.title }}
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <p>{{ site.description }}</p>
+      </div>
+    </div>
+    <ul class="nav navbar-nav">
       {% if site.github_username %}
-      <li>
-        {% include icon-github.html username=site.github_username %}
+      <li class="nav-item">
+        {% include icon-github.html class="nav-link" username=site.github_username %}
       </li>
       {% endif %}
 
       {% if site.twitter_username %}
-      <li>
-        {% include icon-twitter.html username=site.twitter_username %}
+      <li class="nav-item">
+        {% include icon-twitter.html class="nav-link" username=site.twitter_username %}
+      </li>
+      {% endif %}
+
+      {% if site.email %}
+      <li class="nav-item">
+        <a class="nav-link" href="mailto:{{ site.email }}">
+          <span class="fa fa-envelope-o"></span> {{site.email }}
+        </a>
       </li>
       {% endif %}
     </ul>
-    <div>
-      <p>{{ site.description }}</p>
-    </div>
   </div>
 </footer>
+
+<script src="{{ "/js/jquery.min.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/js/tether.min.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/js/bootstrap.min.js" | prepend: site.baseurl }}"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-81673230-1', 'auto');
+  ga('send', 'pageview');
+
+</script>

@@ -1,26 +1,24 @@
-<header class="mdl-layout__header">
-  <div class="mdl-layout__header-row">
-    <!-- Title -->
-    <span class="mdl-layout-title">{{ site.title }}</span>
-    <!-- Add spacer, to align navigation to the right -->
-    <div class="mdl-layout-spacer"></div>
-    <!-- Navigation -->
-    <nav class="mdl-navigation">
+<nav class="navbar navbar-dark navbar-fixed-top bg-primary">
+  <button class="navbar-toggler hidden-sm-up pull-xs-left" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="fa fa-bars"></span>
+  </button>
+  <a class="navbar-brand" href="{{ "/" | prepend: site.baseurl }}">
+    {{ site.title }}
+  </a>
+  <div class="collapse navbar-toggleable-xs" id="navbarCollapse">
+    <ul class="nav navbar-nav">
       {% for my_page in site.pages %}
-        {% if my_page.title %}
-        <a class="mdl-navigation__link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
-        {% endif %}
-      {% endfor %}
-    </nav>
-  </div>
-</header>
-<div class="mdl-layout__drawer">
-  <span class="mdl-layout-title">{{ site.title }}</span>
-  <nav class="mdl-navigation">
-    {% for my_page in site.pages %}
       {% if my_page.title %}
-      <a class="mdl-navigation__link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+      <li class="nav-item {% if my_page.url == page.url  %}active{% endif %}">
+        <a class="nav-link" href="{{ my_page.url | prepend: site.baseurl }}">
+          {% if my_page.icon %}
+          <span class="fa fa-{{ my_page.icon }}"></span>
+          {% endif %}
+          {{ my_page.title }}
+        </a>
+      </li>
       {% endif %}
-    {% endfor %}
-  </nav>
-</div>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>

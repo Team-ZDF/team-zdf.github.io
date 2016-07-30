@@ -1,23 +1,31 @@
 ---
 layout: default
 ---
-
-<div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+<div class="jumbotron">
+  <h1 class="display-3">ZDF - Zero Document Format</h1>
+  <p class="lead">The web is accelerating at a rapid pace. Why are our documents still in the stoneage?</p>
+  <hr class="m-y-2">
+  <p>ZDF stands for zero document format. Zero what? Zero hassle. Zero cost. Zero learning curve. Zero risk. ZDF is built to be powerful, but simple. To make that happen, there are a few easy to use specs.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="/about" role="button">Learn more</a>
+    {% if site.github_username %}
+    {% include icon-github.html class="btn btn-primary btn-lg" username=site.github_username %}
+    {% endif %}
+  </p>
 </div>
+
+<div class="card-columns">
+  {% for post in site.categories.news %}
+  <div class="card card-block">
+    <h3 class="card-title">{{ post.title }}</h3>
+    <a class="card-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    <p class="card-text">
+      <small class="text-muted">{{ post.date | date: "%b %-d, %Y" }}</small>
+    </p>
+  </div>
+  {% endfor %}
+</div>
+
+<p class="rss-subscribe">
+  subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS <span class="fa fa-rss"></span></a>
+</p>
